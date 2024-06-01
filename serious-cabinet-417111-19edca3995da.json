@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "serious-cabinet-417111",
+  "private_key_id": "19edca3995dab8e75c1b76fb1f0a48470622d9ed",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDB1YiwTLrFJPE3\nouWMoVi21k41iIFHiKI9vfAAf4S5f3pBJpl3WyUkE3whcgoPD5ROvv9oBifTBK5a\nSe15xvMOowP7hJSJBgoQppH2ZaBkv0noZvj0fhuwQRwmDW6g9ktQYP6gUf6T0ejQ\ni+FlCGA62QCx1rb+OLol9HKPYG3kJqC/GYiyDH4JYunq2pInwFYDpcU44fNjhMgT\n+2/7oYRdHebQFV+sP9V1CqbTgBy21sj9eWxaV929k91eYZMEDW+suakMpVCExLSt\n+qEryegLecr1c0mqBLXdYHc6tJr1CbOsKcSKhZNR49tDQRxzar3wlBEUOhCW3DSo\nZ8p5n1GfAgMBAAECggEAAIqifDrPcyyN8sW+owlyXRrOxiFQmlmpEy4VxRKWIgrx\nCJldTv/1fYFpoXhKZRqTvTKVNeR9tcrq2vxSfW21kSIzqSWIlE3THZL+XM3E4gzG\nXclbEBsBsP9Fklxx2JSt+jADL7R68LPJIdTT0OHyNUfhuh14KAN4wnfJeCZ6hOtb\ndQL4WaXFPZ9ue201N1cIQp6gdeQDJkA96qq9OyuG+so7F3iShwgks4adQR992KdH\nPbSu90lgQpUHcmyHi8eC2XkYF2AiMArklJbmoo5vcmxmef5E+HDbpkO1Tfy8iJin\nXlo1aIIxOwhXyky0o4R49Ldg/ALzpKlf3HmCZoUh9QKBgQD3YbVengXzKql4MfO/\nGWoBeuH7HNp84gw6KuohhtleYK+Tsvp1HGTY1npEhacPJO+nuPheZPrLMzLwjaK8\nzzzrobESCuChuG9158va0jLjSgpJP1aVCeu1yMNHDVy92yQ8KA/I5Faj3edA1vLD\n6VHlbLpZdJ/FCNoMX/0i9bCY2wKBgQDIlkH2mhQe8VvDA0v9fh72pXHi1QqfYgZf\nD3A+OY8I4W6hRHF2pmgDX6A17kpYcozRUOnQny3jwuD0So6AxHa29SlbNXb/XVj8\n8kAT3eVPVZKZoO+Ype4XQhzhv2RHLKYuGtpsLPas3dz5KFyxbdbAM/fGvKIwIehC\nf9L9mY6zjQKBgFfPgBDA6P3C0/sNSCc6Py2dT9/SAyA3IP34w7j44+mjSk+URWES\nnh12LFpsUruGcedIOilPkNJWLyvCKtT4fvhpIbB02f2tuSrSB8N5v4R8gKA1cmde\n6SNSyzZKYPQneHo+AjReEP8DwpV6dxvhkydr683bHudS2AtyeylQqsnnAoGAOhEl\nb1oTURHV2pJtwShtlkE2ws+hj5o09ffmKl1HRu7bs9u4bPynR7K7EmG1K/2dPksK\nJNav1itoK9AZiLVXGIfIPRsxI6PGSxNl8VpfM6Q2GDs6oRoH3rvI2KErSl9mjBpB\n+ObbUhe4DHjevI5riKCCrgmVehGWxwlx7vAxG1ECgYEAw5QYBmHyIJMwWogh7wp7\nTmeGmpkmsPvNgaAF2/Szjw/0dVmiAXNSrL8FaHCkpN6gGQqIm1bNCctsD59DSiNi\nB/Q5RQpEVj/yK817mvtDuCd+6JqPLmzw7Fcs2h+H4/C6V7HufdEBIUX4r0S3rEuD\nRlDpD8EMO68g2iiqjZ6CQks=\n-----END PRIVATE KEY-----\n",
+  "client_email": "visionapi@serious-cabinet-417111.iam.gserviceaccount.com",
+  "client_id": "110836165036261822189",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/visionapi%40serious-cabinet-417111.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

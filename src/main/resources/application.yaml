@@ -1,0 +1,18 @@
+spring:
+  servlet:
+    multipart:
+      max-file-size: 10MB  # 最大文件大小
+      max-request-size: 100MB  # 最大请求大小
+  application:
+    name: FoodSafe
+  datasource:
+    driver-class-name: org.sqlite.JDBC
+    url: jdbc:sqlite:food.db
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    properties:
+        format_sql: true
+    database-platform: com.my.foodsafe.dialect.SQLiteDialect
+

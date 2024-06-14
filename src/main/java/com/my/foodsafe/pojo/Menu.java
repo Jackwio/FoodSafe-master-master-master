@@ -12,6 +12,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
+@Table (name = "tbl_menu")
 public class Menu {
     @Id
     @GeneratedValue

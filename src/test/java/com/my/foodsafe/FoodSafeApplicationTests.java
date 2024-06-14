@@ -1,11 +1,10 @@
 package com.my.foodsafe;
 
-import com.my.foodsafe.pojo.MUser;
+import com.my.foodsafe.pojo.User;
 import com.my.foodsafe.services.IUserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.UUID;
 
@@ -27,7 +26,7 @@ class FoodSafeApplicationTests {
 //        System.out.println(userService.getUser("wwwwww"));
         String uuid = UUID.randomUUID().toString();
         System.out.println(uuid);
-        userService.saveUser(new MUser(uuid,"ggggg"));
+        userService.saveUser(new User(uuid,"ggggg"));
 //        System.out.println(user);
     }
 

@@ -1,15 +1,15 @@
 package com.my.foodsafe.services;
 
-import com.my.foodsafe.pojo.MUser;
+import com.my.foodsafe.pojo.User;
 
 public interface IUserService {
-    void saveUser(MUser user);
+    void saveUser(User user);
 //    MUser getUser(String name);
-    void updateUser(MUser user);
+    void updateUser(User user);
 
-    String loginUser(MUser user);
+    String loginUser(User user);
 
     void logoutUser();
 
-    void RegisterUser(MUser user);
+    void RegisterUser(User user);
 }

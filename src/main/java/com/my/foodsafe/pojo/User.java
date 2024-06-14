@@ -6,7 +6,6 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.UUID;
 
 @Getter
 @Setter
@@ -14,8 +13,8 @@ import java.util.UUID;
 @AllArgsConstructor
 @Entity
 @ToString
-@Table(name = "MUser")
-public class MUser implements Serializable {
+@Table(name = "tbl_users")
+public class User implements Serializable {
     @Id
     @GeneratedValue
     private String userId;

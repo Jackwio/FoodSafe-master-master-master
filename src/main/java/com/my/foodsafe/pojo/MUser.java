@@ -20,4 +20,7 @@ public class MUser implements Serializable {
     @GeneratedValue
     private String id;
     private String name;
+    private String identity;
+    private String password;
+    private String email;
 }

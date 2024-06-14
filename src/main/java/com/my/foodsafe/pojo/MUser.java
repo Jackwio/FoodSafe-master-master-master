@@ -17,6 +17,7 @@ import java.util.UUID;
 @Table(name = "MUser")
 public class MUser implements Serializable {
     @Id
+    @GeneratedValue
     private String id;
     private String name;
 }

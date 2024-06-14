@@ -9,17 +9,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-@Entity
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Restaurant {
+@Getter
+@Setter
+@Entity
+public class Ingredients {
     @Id
     @GeneratedValue
-    private String restaurantId;
-    private String restaurantName;
-    private String restaurantAddress;
-    private String restaurantImage;
-    
+    private int id;
+    private String chiName;
+    private String engName;
+    private String description;
+    private String food_limit;
+    private String type;
 }

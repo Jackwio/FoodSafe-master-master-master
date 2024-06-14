@@ -11,10 +11,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -29,7 +29,11 @@ public class OCRService implements IOCRService {
 
     public String processOCR(MultipartFile file) throws IOException {
         GoogleCredentials credentials;
-        try (FileInputStream credentialsStream = new FileInputStream("C:\\Users\\USER\\Desktop\\FoodSafe-master-master-master\\serious-cabinet-417111-19edca3995da.json")) {
+        Map<String, List<String>> FoodContent = new HashMap<>();
+        Queue<String> nutrition = new LinkedList<>();
+        Queue<String> amount = new LinkedList<>();
+        List<String> food = Arrays.asList("熱量", "蛋白質", "。", "營養標示");
+        try (FileInputStream credentialsStream = new FileInputStream("C:\\Users\\danie\\Downloads\\citric-expanse-425013-h9-c8180a69bb40.json")) {
             credentials = GoogleCredentials.fromStream(credentialsStream);
         }
 
@@ -51,14 +55,79 @@ public class OCRService implements IOCRService {
 
             String ocrText = response.getTextAnnotationsList().isEmpty() ? "" : response.getTextAnnotationsList().get(0).getDescription();
 
-            Pattern pattern = Pattern.compile("名:\\s*([^\\n/]+)");
-            Matcher matcher = pattern.matcher(ocrText);
+            Pattern name = Pattern.compile("名:\\s*([^\\n/]+)");
+            Matcher matcher = name.matcher(ocrText);
             String productName = "";
             if (matcher.find()) {
                 productName = matcher.group(1);
             }
 
-            return productName;
+            //找字串中的原料
+            int startIndex = -1;
+            startIndex = ocrText.indexOf("原料:");
+            if (startIndex == -1) {
+                startIndex = ocrText.indexOf("成分:");
+            }
+            String ingredients = searchAndExtract(ocrText, startIndex, food);
+
+            //營養成分
+//            int ptr = ocrText.indexOf("營養標示");
+//            nutrition.add("熱量");nutrition.add("蛋白質");nutrition.add("脂肪");nutrition.add("飽和脂肪");
+//            nutrition.add("反式脂肪");nutrition.add("碳水化合物");nutrition.add("鈉");
+//            String temp = "";
+            Queue<String> labels = new LinkedList<>();
+            Queue<String> values = new LinkedList<>();
+
+            String[] lines = ocrText.split("\n");
+            for (String line : lines) {
+                line = line.trim();
+                String[] strings = line.split(" ");
+                for (String string : strings) {
+                    if (Character.isDigit(string.charAt(0))) {
+                        values.offer(string);
+                    } else {
+                        labels.offer(string);
+                    }
+                }
+
+            }
+            while (!labels.isEmpty() && !values.isEmpty()) {
+                String label = labels.poll();
+                Double value1 = Double.parseDouble(values.poll().replaceAll("[大卡公克毫克]", ""));
+                Double value2 = Double.parseDouble(values.poll().replaceAll("[大卡公克毫克]", ""));
+                System.out.println(label + ": " + value1 + " " + value2);
+                return productName;
+            }
+
         }
+        return "ss";
+    }
+    //從字串中分離關鍵字
+    public static String searchAndExtract(String source, int startIndex, List<String> keywords) {
+        // 確認開始索引在範圍內
+        if (startIndex < 0 || startIndex >= source.length()) {
+            throw new IllegalArgumentException("Start index is out of bounds.");
+        }
+
+        // 初始化變量來儲存最早出現的關鍵字索引
+        int earliestIndex = -1;
+        int keywordLength = 0;
+
+        // 遍歷所有關鍵字，找到最早出現的索引
+        for (String keyword : keywords) {
+            int index = source.indexOf(keyword, startIndex);
+            if (index != -1 && (earliestIndex == -1 || index < earliestIndex)) {
+                earliestIndex = index;
+                keywordLength = keyword.length();
+            }
+        }
+
+        // 如果找不到任何關鍵字，返回空字串
+        if (earliestIndex == -1) {
+            return "";
+        }
+
+        // 提取從開始索引到最早出現的關鍵字位置之間的子字串
+        return source.substring(startIndex, earliestIndex + keywordLength);
     }
 }

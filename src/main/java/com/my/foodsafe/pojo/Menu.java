@@ -22,6 +22,6 @@ public class Menu {
     private String menuImage;
 
     @ManyToOne
-    @JoinColumn(name = "restaurant_id", referencedColumnName = "restaurant_id")
+    @JoinColumn(name = "restaurant_id", referencedColumnName = "restaurantId")
     private Restaurant restaurant;
 }

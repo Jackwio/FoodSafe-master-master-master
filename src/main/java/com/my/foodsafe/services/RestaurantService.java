@@ -1,10 +1,16 @@
 package com.my.foodsafe.services;
 
+import com.my.foodsafe.pojo.Food;
+import com.my.foodsafe.pojo.Restaurant;
+import com.my.foodsafe.repositories.IFoodRepository;
 import com.my.foodsafe.repositories.IRestaurantRepository;
 import com.my.foodsafe.utilities.IUUIDGenerator;
 import com.my.foodsafe.utilities.TestUpload;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Service
@@ -16,10 +22,12 @@ public class RestaurantService implements IRestaurantService {
     private IUUIDGenerator iuuidGenerator;
     @Autowired
     private TestUpload testUpload;
+    @Autowired
+    private IFoodRepository foodRepository;
 
     @Override
-    public com.my.foodsafe.pojo.Restaurant saveRestaurant(com.my.foodsafe.pojo.Restaurant restaurant, String photoReference) {
-        com.my.foodsafe.pojo.Restaurant tempRest = restaurantRepository.findByRestaurantName(restaurant.getRestaurantName());
+    public Restaurant saveRestaurant(Restaurant restaurant, String photoReference) {
+        Restaurant tempRest = restaurantRepository.findByRestaurantName(restaurant.getRestaurantName());
         if(tempRest != null){
             return tempRest;
         }
@@ -31,4 +39,15 @@ public class RestaurantService implements IRestaurantService {
         }
         return restaurant;
     }
+
+    //搜尋餐廳(名字)
+    public List<Restaurant> searchRestaurants(String searchString){
+        return (restaurantRepository.searchRestaurant(searchString));
+    }
+
+    //找那間餐廳有的食物
+    public List<Food> getRestaurantFood (Restaurant restaurant){
+        return (foodRepository.findAllByRestaurant(restaurant));
+    }
+
 }

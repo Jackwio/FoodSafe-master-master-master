@@ -1,5 +1,6 @@
 package com.my.foodsafe.controllers;
 
+import com.my.foodsafe.pojo.Food;
 import com.my.foodsafe.pojo.Restaurant;
 import com.my.foodsafe.services.IRestaurantService;
 import com.my.foodsafe.utilities.IUUIDGenerator;
@@ -11,7 +12,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-@Controller
+import java.util.List;
+
+@RestController
 @RequestMapping("/restaurant")
 class RestaurantController {
 
@@ -56,4 +59,15 @@ class RestaurantController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to upload file");
         }
     }
+
+    @PostMapping("/get")
+    public List<Restaurant> getRestaurantById(@RequestParam("name") String name) {
+        return restaurantService.searchRestaurants(name);
+    }
+
+    @PostMapping("/food")
+    public List<Food> getFoodByRestaurant(Restaurant restaurant) {
+        return restaurantService.getRestaurantFood(restaurant);
+    }
+
 }

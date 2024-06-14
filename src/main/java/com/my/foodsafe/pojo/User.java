@@ -20,6 +20,6 @@ public class User implements Serializable {
     private String userId;
     private String userName;
     private String userIdentity;
-    private String userPassword;
+    private String userPwd;
     private String userEmail;
 }

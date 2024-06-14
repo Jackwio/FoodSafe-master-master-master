@@ -12,7 +12,7 @@ import java.util.UUID;
 class FoodSafeApplicationTests {
 
     @Autowired
-    private IUserService userService;
+//    private IUserService userService;
 
 //    @Test
 //    public void test(){
@@ -26,7 +26,7 @@ class FoodSafeApplicationTests {
 //        System.out.println(userService.getUser("wwwwww"));
         String uuid = UUID.randomUUID().toString();
         System.out.println(uuid);
-        userService.saveUser(new User(uuid,"ggggg"));
+//        userService.saveUser(new User(uuid,"ggggg"));
 //        System.out.println(user);
     }
 

@@ -7,7 +7,7 @@ spring:
     name: FoodSafe
   datasource:
     driver-class-name: org.sqlite.JDBC
-    url: jdbc:sqlite:food.db
+    url: jdbc:sqlite:Safeteat.db
   jpa:
     show-sql: true
     hibernate:

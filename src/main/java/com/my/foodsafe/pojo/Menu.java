@@ -15,10 +15,10 @@ import javax.persistence.*;
 public class Menu {
     @Id
     @GeneratedValue
-    private String id;
-    private String name;
-    private String type;
-    private String image;
+    private String menuId;
+    private String menuName;
+    private String menuType;
+    private String menuImage;
 
     @ManyToOne
     @JoinColumn(name = "restaurant_id", referencedColumnName = "restaurant_id")

@@ -18,9 +18,9 @@ import java.util.UUID;
 public class MUser implements Serializable {
     @Id
     @GeneratedValue
-    private String id;
-    private String name;
-    private String identity;
-    private String password;
-    private String email;
+    private String userId;
+    private String userName;
+    private String userIdentity;
+    private String userPassword;
+    private String userEmail;
 }

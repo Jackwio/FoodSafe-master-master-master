@@ -17,7 +17,14 @@ import javax.persistence.Id;
 public class Food {
     @Id
     @GeneratedValue
-    private int id;
-    private String name;
-    private double weight;
+    private int foodId;
+    private String foodName;
+    private double foodWeight;
+    private double foodProtein;
+    private double foodCarbon;
+    private double foodCalories;
+    private double foodFat;
+    private double foodSugar;
+    private double foodNa;
+    private double foodCholesterol;
 }

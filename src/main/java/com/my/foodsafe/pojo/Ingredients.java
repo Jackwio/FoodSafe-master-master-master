@@ -18,9 +18,9 @@ public class Ingredients {
     @Id
     @GeneratedValue
     private int id;
-    private String chiName;
-    private String engName;
-    private String description;
-    private String food_limit;
-    private String type;
+    private String ingredientsChiName;
+    private String ingredientsEngName;
+    private String ingredientsDescription;
+    private String ingredientsFoodLimit;
+    private String ingredientsType;
 }

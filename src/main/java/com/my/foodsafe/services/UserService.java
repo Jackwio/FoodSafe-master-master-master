@@ -24,4 +24,9 @@ public class UserService implements IUserService {
 //    public MUser getUser(String name) {
 //        return userRepository.findByNamedParam(name);
 //    }
+
+    @Override
+    public String loginUser(MUser user) {
+
+    }
 }

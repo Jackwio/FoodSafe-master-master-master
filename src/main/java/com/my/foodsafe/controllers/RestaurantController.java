@@ -1,6 +1,7 @@
 package com.my.foodsafe.controllers;
 
 import com.my.foodsafe.pojo.Food;
+import com.my.foodsafe.pojo.History;
 import com.my.foodsafe.pojo.Restaurant;
 import com.my.foodsafe.services.IRestaurantService;
 import com.my.foodsafe.utilities.IUUIDGenerator;
@@ -70,4 +71,8 @@ class RestaurantController {
         return restaurantService.getRestaurantFood(restaurant);
     }
 
+    @PostMapping("/history")
+    public List<History> getAllHistory(){
+        return restaurantService.getAllHistory();
+    }
 }

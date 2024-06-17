@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 
 @Getter
@@ -17,9 +18,8 @@ import javax.persistence.Table;
 @AllArgsConstructor
 @Entity
 @Table (name= "tbl_restaurant")
-public class Restaurant {
+public class Restaurant implements Serializable {
     @Id
-    @GeneratedValue
     private String restaurantId;
     private String restaurantName;
     private String restaurantAddress;

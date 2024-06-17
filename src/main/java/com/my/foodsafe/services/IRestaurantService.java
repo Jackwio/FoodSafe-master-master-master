@@ -1,6 +1,7 @@
 package com.my.foodsafe.services;
 
 import com.my.foodsafe.pojo.Food;
+import com.my.foodsafe.pojo.History;
 import com.my.foodsafe.pojo.Restaurant;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -14,4 +15,6 @@ public interface IRestaurantService {
     List<Restaurant> searchRestaurants(String searchString);
 
     List<Food> getRestaurantFood(Restaurant restaurant);
+
+    List<History> getAllHistory();
 }

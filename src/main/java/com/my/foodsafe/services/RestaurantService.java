@@ -1,12 +1,16 @@
 package com.my.foodsafe.services;
 
 import com.my.foodsafe.pojo.Food;
+import com.my.foodsafe.pojo.History;
 import com.my.foodsafe.pojo.Restaurant;
 import com.my.foodsafe.repositories.IFoodRepository;
+import com.my.foodsafe.repositories.IHistoryRepository;
 import com.my.foodsafe.repositories.IRestaurantRepository;
 import com.my.foodsafe.utilities.IUUIDGenerator;
 import com.my.foodsafe.utilities.TestUpload;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.orm.jpa.JpaSystemException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -24,6 +28,8 @@ public class RestaurantService implements IRestaurantService {
     private TestUpload testUpload;
     @Autowired
     private IFoodRepository foodRepository;
+    @Autowired
+    private IHistoryRepository historyRepository;
 
     @Override
     public Restaurant saveRestaurant(Restaurant restaurant, String photoReference) {
@@ -48,6 +54,12 @@ public class RestaurantService implements IRestaurantService {
     //找那間餐廳有的食物
     public List<Food> getRestaurantFood (Restaurant restaurant){
         return (foodRepository.findAllByRestaurant(restaurant));
+    }
+
+    public List<History> getAllHistory (){
+        List<History> historyList = new ArrayList<>();
+            historyList = historyRepository.findAll();
+        return historyList;
     }
 
 }

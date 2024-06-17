@@ -18,11 +18,10 @@ import javax.persistence.Table;
 @Table (name = "tbl_ingredients")
 public class Ingredients {
     @Id
-    @GeneratedValue
-    private int id;
-    private String ingredientsChiName;
-    private String ingredientsEngName;
-    private String ingredientsDescription;
-    private String ingredientsFoodLimit;
-    private String ingredientsType;
+    private String ingredientId;
+    private String ingredientChiName;
+    private String ingredientEngName;
+    private String ingredientDescription;
+    private String foodLimit;
+    private String ingredientType;
 }

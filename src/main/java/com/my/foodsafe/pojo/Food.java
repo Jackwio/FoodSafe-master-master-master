@@ -1,11 +1,13 @@
 package com.my.foodsafe.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -13,10 +15,9 @@ import javax.persistence.*;
 @Getter
 @Entity
 @Table(name = "tbl_foods")
-public class Food {
+public class Food implements Serializable {
     @Id
-    @GeneratedValue
-    private int foodId;
+    private String foodId;
     private String foodName;
     private double foodWeight;
     private double foodProtein;
@@ -29,6 +30,9 @@ public class Food {
     private String foodType;
     private String foodImage;
     @ManyToOne
-    @JoinColumn(name = "restaurant_id", referencedColumnName = "restaurantId")
+    @JoinColumn(name = "restaurant_id")
     private Restaurant restaurant;
+    @JsonIgnore
+    @OneToOne(mappedBy = "food", cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    private History history;
 }

@@ -15,7 +15,6 @@ import javax.persistence.*;
 @Table (name = "tbl_menu")
 public class Menu {
     @Id
-    @GeneratedValue
     private String menuId;
     private String menuName;
     private String menuType;
